@@ -31,13 +31,16 @@
 ## Random Forest, DNN, LSTM, Lasso & Ridge
 ### Random Forest
 ![image](https://user-images.githubusercontent.com/80387630/121207548-57583880-c8b4-11eb-8eb2-2e9b353a15a3.png)
+
 ITEM_TEMP(수온)을 종속변수로, 그 외 변수들을 독립변수로 설정한 뒤, 랜덤포레스트를 실행하여 선정된 변수의 일부는 다음과 같다. 상위의 변수들을 살펴보면, ‘평균 기온’, ‘평균 지온’, ‘최저 기온’ 등이 있다. 이와 같은식으로 예측이 필요한 모든 종속변수에 대해 실행하였다.
 ### DNN
 ![image](https://user-images.githubusercontent.com/80387630/121207703-76ef6100-c8b4-11eb-9569-1158b36ff878.png)
+
 [Modeling① - DNN(Deep Neural Network)] 통합 데이터를 DNN모델에 적용하기 전, 예측 성능을 파악하기 위하여 train set과 test set을 각각 7:3으로 랜덤 추출하였다. 수온 변수(ITEM_TEMP)를 예측변수로 설정하여 DNN모델에 학습시킨 Neuralnet 모형은 다음과 같다.
 위의 모델의 경우 3개의 hidden layer와 각각 3개의 node를 사용하였다. 다음은 모델링 후, 수온에 대한 예측의 결과를 그래프로 나타낸 것이다.  R square값은 0.788, RMSE값은 0.061의 결과를 얻었다.
 ### LSTM
 ![image](https://user-images.githubusercontent.com/80387630/121207946-a69e6900-c8b4-11eb-9692-392303473e96.png)
+
 [Modeling② - LSTM(Long Short-Term Memory)]
 모델을 돌릴 때에는 layer는 20개로 설정하고, loss의 기준을 ‘MSE’로, optimizer는 ‘adam’을 사용했을 때 가장 성능이 좋았다. 또한 epoch를 100으로 크게 설정하고 early stop을 적용하여 더이상 모델의 성능이 좋아지지 않고 머무르면 자동으로 멈추게 하였다.
 ### Lasso & Ridge
@@ -45,6 +48,8 @@ ITEM_TEMP(수온)을 종속변수로, 그 외 변수들을 독립변수로 설�
 alpha의 값이 작아지면 규제가 작아 원래의 회귀식과 유사해지므로 각각 다항회귀식의 R-squared값과 비슷해지는 것을 알 수 있다. 차수가 2, 3일때는 과적합이 크게 나타나지 않아 Ridge회귀와 Lasso회귀를 적용했을 때 크게 개선이 없다. 하지만 차수가 4인 경우, 적절한 alpha값으로 규제를 가하면 train set과 test set의 차이를 줄일 수 있다. 즉 과적합을 줄여 test set에 대한 설명력을 높일 수 있는 것이다. Degree=4일 때의 Ridge와 Lasso는 실행속도의 한계로 생략하였다. 위와 같이 하이퍼파라미터 조정을 거쳐, Ridge회귀와 Lasso회귀의 alpha값은 0.005로 설정하여 모델링하였다. 또한 차수는 3으로 설정하였으며, 다항회귀와 Lasso보다 더 좋은 성능을 보였던 Ridge회귀만을 사용하였다. 수온 변수를 예측하였을 때, 다항회귀의 R-squared값은 80.2, Ridge회귀의 R-squared값은 80.3이었다. 
 
 ## 성능 비교표
+![image](https://user-images.githubusercontent.com/80387630/121210204-71931600-c8b6-11eb-8581-09b30cc9a15f.png)
+
 [Modeling④ - 각 기법의 성능 비교표]
 
 
