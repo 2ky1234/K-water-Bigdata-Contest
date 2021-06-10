@@ -54,7 +54,7 @@ alpha의 값이 작아지면 규제가 작아 원래의 회귀식과 유사해�
 ## 성능 비교표
 ![image](https://user-images.githubusercontent.com/80387630/121210204-71931600-c8b6-11eb-8581-09b30cc9a15f.png)
 
-[Modeling④ - 각 기법의 성능 비교표]
+[Modeling④ - 각 기법의 성능 비교표] 
 
 
 ## 결론 및 시사점 
